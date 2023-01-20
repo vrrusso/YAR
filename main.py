@@ -6,7 +6,7 @@ from input_handlers import EventHandler
 
 from entity import Entity
 
-from  game_map import GameMap
+from procgen import generate_dungeon
 
 
 
@@ -18,6 +18,10 @@ def main():
 
     map_width = 80
     map_height = 45
+
+    room_max_size = 10
+    room_min_size = 6
+    max_rooms = 30
 
 
 
@@ -34,7 +38,12 @@ def main():
 
     entities = {npc,player}
 
-    game_map = GameMap(map_width,map_height)
+    game_map = generate_dungeon(max_rooms=max_rooms,
+                                room_min_size=room_min_size,
+                                room_max_size=room_max_size,
+                                map_width=map_width,
+                                map_height=map_height,
+                                player=player)
 
 
 
